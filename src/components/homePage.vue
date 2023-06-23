@@ -45,7 +45,7 @@ export default {
           this.errorMsg = data.error.message;
         } else {
           this.resultName = data.location.name;
-          this.displayItems.push({name: "Tempreature", value: data.current.temp_c, icon: "fa-solid fa-temperature-three-quarters", unit: "°C"});
+          this.displayItems.push({name: "Temperature", value: data.current.temp_c, icon: "fa-solid fa-temperature-three-quarters", unit: "°C"});
           this.displayItems.push({name: "Country", value: `${data.location.country}`, icon: "fa-solid fa-globe"});
           this.displayItems.push({name: "Weather Condition", value: data.current.condition.text, icon: "fa-solid fa-cloud", img: data.current.condition.icon});
           this.displayItems.push({name: "Wind Speed / Direction", value: `${data.current.wind_mph}mph / ${data.current.wind_dir} `, icon: "fa-solid fa-wind"});
