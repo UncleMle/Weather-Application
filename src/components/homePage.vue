@@ -23,11 +23,12 @@
 </template>
 
 <script>
+// tset
 export default {
   data() {
     return {
       error: false,
-      queriedLocation: "",
+      queriedLocation: '',
       resultName: "",
       displayItems: []
     }
