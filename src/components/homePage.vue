@@ -38,7 +38,7 @@ export default {
     },
     async search() {
       if(this.queriedLocation.length > 0) {
-        const apiKey = ""; // Insert your API key from https://www.weatherapi.com/
+        const apiKey = "948af2c1958f455ab8e91750230202";
         const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${this.queriedLocation.toLowerCase()}`);
         const data = await response.json();
         if(data.error != undefined) {
@@ -49,6 +49,7 @@ export default {
           this.displayItems.push({name: "Country", value: `${data.location.country}`, icon: "fa-solid fa-globe"});
           this.displayItems.push({name: "Weather Condition", value: data.current.condition.text, icon: "fa-solid fa-cloud", img: data.current.condition.icon});
           this.displayItems.push({name: "Wind Speed / Direction", value: `${data.current.wind_mph}mph / ${data.current.wind_dir} `, icon: "fa-solid fa-wind"});
+          this.displayItems.push({name: "Time", value: data.location.localtime, icon: "fa-solid fa-clock"});
           this.displayItems.push({name: "Humidity", value: data.current.humidity, icon: "fa-solid fa-droplet", unit: "%"});
         }
       }
