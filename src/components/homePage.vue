@@ -38,7 +38,7 @@ export default {
     },
     async search() {
       if(this.queriedLocation.length > 0) {
-        const apiKey = "948af2c1958f455ab8e91750230202";
+        const apiKey = ""; // Insert your API key
         const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${this.queriedLocation.toLowerCase()}`);
         const data = await response.json();
         if(data.error != undefined) {
