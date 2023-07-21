@@ -15,8 +15,10 @@
     <button @click="returnToHome()" type="button" class=" mt-3 py-3.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg dark:bg-gray-700 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Search</button>
   </div>
   <div v-else>
+  <form @keydown.enter.prevent="search()">
     <input type="search" id="fname" name="fname" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for a location..." required v-model="queriedLocation">
-    <button @click="search()" type="button" class=" mt-3 py-3.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg dark:bg-gray-700 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Search</button>
+  </form> 
+   <button @click="search()" type="button" class=" mt-3 py-3.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg dark:bg-gray-700 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Search</button>
   </div>
   </div>
 </div>
@@ -38,7 +40,7 @@ export default {
     },
     async search() {
       if(this.queriedLocation.length > 0) {
-        const apiKey = ""; // Insert your API key
+        const apiKey = "b2c5eeb06177482f96e150152232306"; // Insert your API key
         const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${this.queriedLocation.toLowerCase()}`);
         const data = await response.json();
         if(data.error != undefined) {
